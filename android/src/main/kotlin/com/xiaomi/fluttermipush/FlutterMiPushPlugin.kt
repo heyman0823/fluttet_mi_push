@@ -24,18 +24,19 @@ class FlutterMiPushPlugin(private val context: Context) : MethodCallHandler {
 
   override fun onMethodCall(call: MethodCall, result: Result) {
     when {
-      call.method == "init" -> init(call)
+      call.method == "init" -> init(call, result)
       else -> result.notImplemented()
     }
   }
 
-  private fun init(call: MethodCall) {
+  private fun init(call: MethodCall, result: Result) {
     Log.d(TAG, "init")
     val appId = call.argument<String>("appId")
     val appKey = call.argument<String>("appKey")
     if (shouldInit(context)) {
       MiPushClient.registerPush(context, appId, appKey)
     }
+    result.success("success")
   }
 
   private fun shouldInit(context: Context): Boolean {

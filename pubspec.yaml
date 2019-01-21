@@ -2,7 +2,7 @@ name: flutter_mi_push
 description: Flutter mi push plugin.
 version: 0.0.1
 author: Huang Wenxiong <huangwenxiong0823@gmail.com>
-homepage:
+homepage: https://github.com/heyman0823/fluttet_mi_push
 
 environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
