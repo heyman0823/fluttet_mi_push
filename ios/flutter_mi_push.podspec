@@ -15,10 +15,10 @@ Flutter mi push plugin.
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.frameworks = 'MobileCoreServices', 'SystemConfiguration'
+  s.frameworks = 'MobileCoreServices', 'SystemConfiguration', 'UserNotifications', 'CFNetwork', 'CoreTelephony'
   s.libraries = 'xml2', 'z', 'resolv'
   s.vendored_libraries = 'Classes/libMiPushSDK.a'
-
+  s.static_framework = true
   s.ios.deployment_target = '8.0'
 end
 
