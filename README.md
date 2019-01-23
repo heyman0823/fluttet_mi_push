@@ -1,14 +1,43 @@
 # flutter_mi_push
 
-Flutter mi push plugin.
+Android/iOS平台上集成小米push
 
-## Getting Started
+## Android
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.io/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+* AndroidManifest.xml中声明以下权限：
+```xml
+<permission
+    android:name="com.mi.finance.insightbank.permission.MIPUSH_RECEIVE"
+    android:protectionLevel="signature" />
+<uses-permission
+    android:name="com.mi.finance.insightbank.permission.MIPUSH_RECEIVE" />
+```
+## iOS
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+* 开启Target -> Capabilities -> Background Modes，勾选Remote notifications
+* 开启Target -> Capabilities -> Push Notifications
+* info.plist中添加：
+```xml
+<key>MiSDKAppID</key>
+<string>your iOS app id</string>
+<key>MiSDKAppKey</key>
+<string>your iOS app key</string>
+<key>MiSDKRun</key>
+<string>Online</string>
+```
+## Flutter
+
+```dart
+class MiPushManager {
+  static const String APP_ID = ''; // your Android app id
+  static const String APP_KEY = ''; // your Android app key
+
+  static void init() {
+    try {
+      FlutterMiPush.init(APP_ID, APP_KEY);
+    } on Exception catch (e) {
+      print(e);
+    }
+  }
+}
+```
