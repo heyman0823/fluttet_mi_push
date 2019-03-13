@@ -19,6 +19,7 @@ Flutter mi push plugin.
   s.libraries = 'xml2', 'z', 'resolv'
   s.vendored_libraries = 'Classes/libMiPushSDK.a'
   s.static_framework = true
-  s.ios.deployment_target = '8.0'
+  s.swift_version = '5.0'
+  s.ios.deployment_target = '9.0'
 end
 
