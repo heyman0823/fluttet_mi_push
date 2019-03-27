@@ -12,7 +12,7 @@ Flutter mi push plugin.
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
+  s.source_files = 'Classes/**/*.m','Classes/**/*.swift'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
   s.frameworks = 'MobileCoreServices', 'SystemConfiguration', 'UserNotifications', 'CFNetwork', 'CoreTelephony'
