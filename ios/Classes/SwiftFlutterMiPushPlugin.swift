@@ -36,7 +36,7 @@ public class SwiftFlutterMiPushPlugin: NSObject, FlutterPlugin, MiPushSDKDelegat
   }
   
   @available(iOS 10.0, *)
-  private func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
     let userInfo: [AnyHashable : Any] = notification.request.content.userInfo;
     if notification.request.trigger is UNPushNotificationTrigger {
       MiPushSDK.handleReceiveRemoteNotification(userInfo)
@@ -45,7 +45,7 @@ public class SwiftFlutterMiPushPlugin: NSObject, FlutterPlugin, MiPushSDKDelegat
   }
   
   @available(iOS 10.0, *)
-  private func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
     let userInfo: [AnyHashable : Any] = response.notification.request.content.userInfo;
     if response.notification.request.trigger is UNPushNotificationTrigger {
       MiPushSDK.handleReceiveRemoteNotification(userInfo)
